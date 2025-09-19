@@ -10,17 +10,20 @@ class Box {
     }
 }
 
-$box1 = new Box();
-$box1->width = 10;
-$box1->height = 20;
-$box1->lenght = 30;
-var_dump($box1);
-var_dump($box1->volume());
+class MetalBox extends Box {
+    public $material = 'Metal🤘';
+    public $weightPerUnit = 2;
 
-$box2 = new Box();
-$box2->width = 40;
-$box2->height = 50;
-$box2->lenght = 60;
-var_dump($box2);
-var_dump($box2->volume());
-var_dump($box1);
+    public function mass() {
+        return $this->volume() * $this->weightPerUnit;
+    }
+}
+
+$metalBox1 = new MetalBox();
+$metalBox1->width = 10;
+$metalBox1->height = 20;
+$metalBox1->lenght = 30;
+
+var_dump($metalBox1->volume());
+var_dump($metalBox1->mass());
+var_dump($metalBox1);
